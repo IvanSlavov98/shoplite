@@ -1,8 +1,8 @@
 package org.shoplite.productservice.category;
 
 import org.shoplite.productservice.category.entity.Category;
-import org.shoplite.productservice.category.entity.CategoryRepository;
 import org.shoplite.productservice.category.entity.CreateCategoryRequest;
+import org.shoplite.productservice.category.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

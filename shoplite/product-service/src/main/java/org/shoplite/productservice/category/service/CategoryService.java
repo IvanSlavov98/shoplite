@@ -1,8 +1,7 @@
-package org.shoplite.productservice.category;
+package org.shoplite.productservice.category.service;
 
 import org.shoplite.productservice.category.entity.Category;
 import org.shoplite.productservice.category.entity.CreateCategoryRequest;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

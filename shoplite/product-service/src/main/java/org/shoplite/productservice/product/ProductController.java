@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.shoplite.productservice.product.entity.CreateProductRequest;
 import org.shoplite.productservice.product.entity.Product;
 import org.shoplite.productservice.product.entity.ProductResponse;
+import org.shoplite.productservice.product.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +32,10 @@ public class ProductController {
     @PutMapping("/delete/{id}")
     public void deleteProduct(@PathVariable Long id) {
         this.productService.deleteProduct(id);
+    }
+
+    @GetMapping("/get/{id}")
+    public ProductResponse getProduct(@PathVariable Long id) {
+        return this.productService.getProduct(id);
     }
 }

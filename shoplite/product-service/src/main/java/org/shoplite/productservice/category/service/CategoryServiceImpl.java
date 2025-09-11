@@ -1,9 +1,8 @@
-package org.shoplite.productservice.category;
+package org.shoplite.productservice.category.service;
 
 import org.shoplite.productservice.category.entity.Category;
 import org.shoplite.productservice.category.entity.CategoryRepository;
 import org.shoplite.productservice.category.entity.CreateCategoryRequest;
-import org.shoplite.productservice.product.entity.Product;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;

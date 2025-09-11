@@ -1,4 +1,4 @@
-package org.shoplite.productservice.product;
+package org.shoplite.productservice.product.service;
 
 import org.shoplite.productservice.category.entity.Category;
 import org.shoplite.productservice.category.entity.CategoryRepository;
@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
-    @Cacheable(cacheNames = "product:list", key="'all'")
+    @Cacheable(cacheNames = "product:list", key = "'all'")
     @Transactional(readOnly = true)
     public List<ProductResponse> listProducts() {
         return productRepository.findAllActive()
@@ -66,6 +66,16 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         product.setDelFlag(true);
         productRepository.save(product);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public ProductResponse getProduct(Long id) {
+        return this.productRepository.findById(id)
+                .stream()
+                .map(ProductResponse::from)
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Product '%s' not found".formatted(id)));
     }
 
 }
