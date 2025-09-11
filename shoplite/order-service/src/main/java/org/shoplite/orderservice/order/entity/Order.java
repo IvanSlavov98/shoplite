@@ -22,11 +22,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String customerEmail;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.CREATED;
 
+    @Column(nullable = false)
     private BigDecimal totalAmount = BigDecimal.ZERO;
 
+    @Column(nullable = false)
     private OffsetDateTime createdAt = OffsetDateTime.now();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
